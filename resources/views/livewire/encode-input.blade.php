@@ -12,8 +12,7 @@
     </form>
     @if ($output)
         <div class="mt-4">
-            <span class="font-semibold">Output</span>:
-            {{ $output }}
+            <pre>{{ html_entity_decode($output) }}</pre>
         </div>
     @endif
 </div>

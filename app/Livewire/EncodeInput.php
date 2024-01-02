@@ -10,9 +10,44 @@ class EncodeInput extends Component
 
     public $output = '';
 
+    protected $codeTable = [
+        'A' => '☀',
+        'B' => '☁',
+        'C' => '☂',
+        'D' => '★',
+        'E' => '☎',
+        'F' => '☑',
+        'G' => '☛',
+        'H' => '☾',
+        'I' => '♫',
+        'J' => '♻',
+        'K' => '⚀',
+        'L' => '⚑',
+        'M' => '⚒',
+        'N' => '⚖',
+        'O' => '⚠',
+        'P' => '⚫',
+        'Q' => '⚽',
+        'R' => '⛄',
+        'S' => '⛔',
+        'T' => '⛟',
+        'U' => '⛴',
+        'V' => '©',
+        'W' => '↢',
+        'X' => '⌨',
+        'Y' => '⏎',
+        'Z' => '⏭',
+        ' ' => '_',
+    ];
+
     public function encode()
     {
-        $this->output = 'Not yet implemented.';
+        $uppercase = strtoupper($this->input);
+        $this->output = '';
+        for ($i = 0; $i < strlen($uppercase); $i++) {
+            $value = $this->codeTable[$uppercase[$i]] ?? $this->input[$i];
+            $this->output .= $value;
+        }
     }
 
     public function render()

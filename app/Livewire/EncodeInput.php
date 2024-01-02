@@ -52,6 +52,10 @@ class EncodeInput extends Component
 
     public function render()
     {
-        return view('livewire.encode-input');
+        return view('livewire.encode-input')->with([
+            'codeTable' => array_filter($this->codeTable, function ($item) {
+                return $item != ' ';
+            }, ARRAY_FILTER_USE_KEY),
+        ]);
     }
 }

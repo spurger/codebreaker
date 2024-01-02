@@ -1,3 +1,3 @@
 # CodeBreaker
 
-Simple encoding application based on this [Laracast video](https://www.youtube.com/watch?v=jq9NDuIpXlU).
+Simple encoding application based on this [Laracasts video](https://www.youtube.com/watch?v=jq9NDuIpXlU).

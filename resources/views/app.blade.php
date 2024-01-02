@@ -7,10 +7,16 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name') }}</title>
+
+    @vite(['resources/css/app.css'])
 </head>
 
 <body>
-    {{ config('app.name') }}
+    <div class="min-h-screen bg-slate-800 px-10 py-12 text-white">
+        <h1 class="text-4xl font-bold tracking-wide text-sky-300">
+            {{ config('app.name') }}
+        </h1>
+    </div>
 </body>
 
 </html>

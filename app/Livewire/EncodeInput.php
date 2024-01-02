@@ -10,7 +10,7 @@ class EncodeInput extends Component
 
     public $output = '';
 
-    protected $codeTable = [
+    public $codeTable = [
         'A' => '☀',
         'B' => '☁',
         'C' => '☂',
@@ -37,7 +37,6 @@ class EncodeInput extends Component
         'X' => '⌨',
         'Y' => '⏎',
         'Z' => '⏭',
-        ' ' => '_',
     ];
 
     public function encode()
@@ -46,16 +45,31 @@ class EncodeInput extends Component
         $this->output = '';
         for ($i = 0; $i < strlen($uppercase); $i++) {
             $value = $this->codeTable[$uppercase[$i]] ?? $this->input[$i];
+            if ($value == ' ') {
+                $value = '_';
+            }
             $this->output .= $value;
         }
+    }
+
+    public function shuffleCodeTable()
+    {
+        $keys = array_keys($this->codeTable);
+        $values = array_values($this->codeTable);
+        shuffle($values);
+        $newCodeTable = [];
+        foreach ($keys as $key) {
+            $newCodeTable[$key] = array_shift($values);
+        }
+        $this->codeTable = $newCodeTable;
+        $this->input = '';
+        $this->encode();
     }
 
     public function render()
     {
         return view('livewire.encode-input')->with([
-            'codeTable' => array_filter($this->codeTable, function ($item) {
-                return $item != ' ';
-            }, ARRAY_FILTER_USE_KEY),
+            'codeTable' => $this->codeTable,
         ]);
     }
 }

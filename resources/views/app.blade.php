@@ -16,6 +16,9 @@
         <h1 class="text-4xl font-bold tracking-wide text-sky-500">
             {{ config('app.name') }}
         </h1>
+        <div class="mt-4">
+            <livewire:encode-input />
+        </div>
     </div>
 </body>
 

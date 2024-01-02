@@ -12,8 +12,8 @@
 </head>
 
 <body>
-    <div class="min-h-screen bg-slate-800 px-10 py-12 text-white">
-        <h1 class="text-4xl font-bold tracking-wide text-sky-300">
+    <div class="min-h-screen bg-gray-100 px-10 py-12 text-gray-900">
+        <h1 class="text-4xl font-bold tracking-wide text-sky-500">
             {{ config('app.name') }}
         </h1>
     </div>
